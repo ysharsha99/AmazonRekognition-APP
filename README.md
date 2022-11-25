@@ -5,7 +5,8 @@ Amazon EC2 - Amazon Elastic Compute Cloud (Amazon EC2) is a web service that pro
 Amazon Rekognition - Amazon Rekognition makes it easy to add image and video analysis to your applications using proven, highly scalable, deep learning technology that requires no machine learning expertise to use. With Amazon Rekognition, you can identify objects, people, text, scenes, and activities in images and videos, as well as detect any inappropriate content. Amazon Rekognition also provides highly accurate facial analysis and facial search capabilities that you can use to detect, analyze, and compare faces for a wide variety of user verification, people counting, and public safety use cases.
 Amazon VPC - Amazon Virtual Private Cloud (Amazon VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 for most resources in your virtual private cloud, helping to ensure secure and easy access to resources and applications.
 AWS Identity and Access Management (IAM) - AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources. IAM is a feature of your AWS account offered at no additional charge. You will be charged only for use of other AWS services.
-
+ DOC LINK:- https://docs.google.com/document/d/1yh9UMk0u9XHz38aKuSlPlNs01d3vii3XUp2n6RC-PGQ/preview#
+ 
 Resources Used:
 index.html: Markup for the static application
 https://awsmc-dd.s3.ap-south-1.amazonaws.com/index.html
