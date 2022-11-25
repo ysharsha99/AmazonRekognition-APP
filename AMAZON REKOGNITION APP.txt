@@ -1,0 +1,52 @@
+Step 1: Create an EC2 instance and an IAM role
+> Go to https://aws.amazon.com/console/
+> After logging in, Navigate to the Console and select “EC2” from the services dropdown.
+> Click on “Launch Instance”
+> Select Amazon Linux 2 AMI (HVM), SSD Volume Type as the AMI
+>Select t2.micro type of instance and click on “Next: Configure Instance Details” 
+>On this page (configure instance details or Step 3), we create an IAM role that gives permissions to the EC2 to access the AWS Rekognition service on your behalf. Click on “Create a new IAM role”
+>A new tab would be opened. Navigate to the new tab and click on on “Create Role”
+>Under “Choose a use case”, click on EC2 which would be under “Common use cases”
+>Now, we should attach the relevant permissions to our role. Search for >AmazonRekognitionFullAccess and tick the box so that it will be attached to our role.
+>Click next and here you can optionally add tags.
+>Click next and assign a name to the role. I am going to assign the name as “aws-rekog-1”. Give a description and click “Create Role”.
+>Navigate to the previous tab, and click on the refresh button near “Create new IAM role”
+
+>Select the role that you just created. In my case it is aws-rekog-1. Now the IAM role field should look like this.
+
+>Click on “Next: Add Storage” and after that “Next: Add Tags” and then “Next: Configure Security Groups”. We will leave Storage and Tags as defaults.
+>In the security groups, Click on add a new rule and let the type of the new rule be “Custom TCP Rule”. Fill in the rule and finally, the rules should look as follows.
+     port range:3000
+The new rule is going to allow us to access the EC2 instance from anywhere. We would be using the port number 3000 to host our application, but you can use any port number greater than 1024.
+Click “Review and Launch”. Review your configuration and click on Launch.
+A pop-up window will appear. Fill the form as below:
+
+You can give any name to your key pair. Download the key pair and keep it safe. After that click on Launch Instances. 
+NOTE: You can also proceed without creating a key pair for this demo.
+
+Step 2: Connect to the EC2 Instance
+After the EC2 instance is created, connect to the EC2 instance by clicking on the “Connect” button. This will open an SSH connection to the EC2 instance.
+A terminal should appear like shown below
+
+Step 3: Install Node.js and Setup the Application
+
+
+1. Install Node.js by executing the following commands in the terminal
+
+curl -fsSL https://rpm.nodesource.com/setup_14.x | sudo bash 
+sudo yum install -y nodejs
+
+2. Execute the following commands:
+
+mkdir app 
+cd app
+mkdir public && mkdir server
+cd public
+wget https://awsmc-dd.s3.ap-south-1.amazonaws.com/index.html
+wget https://awsmc-dd.s3.ap-south-1.amazonaws.com/index.js
+cd ..
+cd server
+wget https://awsmc-dd.s3.ap-south-1.amazonaws.com/package.json
+wget https://awsmc-dd.s3.ap-south-1.amazonaws.com/server.js
+npm install
+node server.js
